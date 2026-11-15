@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club No-Code | Kabakoo Academies</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#1F2A44',
+                            dark: '#161F33',
+                            light: '#2B3A5C'
+                        },
+                        offwhite: '#FAF7F2',
+                        coral: {
+                            DEFAULT: '#FF6F61',
+                            hover: '#E85B4D',
+                            light: '#FFEBE8'
+                        },
+                        lightgray: {
+                            DEFAULT: '#E5E7EB',
+                            alt: '#F3F4F6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base typography & accessibility */
+        html {
+            font-size: 17px;
+        }
+        body {
+            background-color: #FAF7F2;
+            color: #1F2A44;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #1F2A44;
+        }
+        /* Standardized image presentation */
+        img {
+            border-radius: 0.75rem;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="bg-offwhite text-navy font-sans antialiased selection:bg-coral selection:text-white">
+
+    <!-- 1. Top Announcement Bar -->
+    <div class="bg-navy text-offwhite text-xs md:text-sm py-2.5 px-4 text-center border-b border-navy-light/40">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+            <span class="inline-flex items-center gap-1.5 font-medium">
+                <span class="w-2 h-2 rounded-full bg-coral"></span>
+                Bootcamp No-Code & IA Kabakoo : candidatures ouvertes pour la nouvelle cohorte !
+            </span>
+            <button onclick="openModal()" class="text-coral font-bold hover:underline ml-1">
+                Postuler en 2 min →
+            </button>
+        </div>
+    </div>
+
+    <!-- 2. Navigation Bar (Bleu marine : #1F2A44) -->
+    <header class="sticky top-0 z-40 bg-navy text-offwhite shadow-md border-b border-navy-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-xl bg-coral flex items-center justify-center text-white font-display font-extrabold text-xl shadow-sm group-hover:bg-coral-hover transition">
+                    K
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-lg md:text-xl tracking-tight text-offwhite flex items-center gap-2">
+                        KABAKOO <span class="text-xs px-2 py-0.5 rounded-full bg-coral/20 text-coral font-semibold tracking-normal border border-coral/30">NO-CODE</span>
+                    </span>
+                    <span class="text-[11px] text-lightgray font-medium tracking-wider uppercase">Academies • High-Dunya Tech</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-offwhite/90">
+                <a href="#about" class="hover:text-coral transition">Le Club</a>
+                <a href="#outils" class="hover:text-coral transition">Boîte à Outils</a>
+                <a href="#simulateur" class="hover:text-coral transition flex items-center gap-1.5">
+                    <i data-lucide="cpu" class="w-4 h-4 text-coral"></i> Simulateur
+                </a>
+                <a href="#projets" class="hover:text-coral transition">Projets Membres</a>
+                <a href="#programme" class="hover:text-coral transition">Programmes</a>
+                <a href="#faq" class="hover:text-coral transition">FAQ</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-block text-xs font-semibold px-4 py-2 rounded-lg text-offwhite/80 hover:text-white border border-lightgray/20 hover:border-lightgray/40 transition">
+                    Contact
+                </a>
+                <button onclick="openModal()" class="px-5 py-2.5 rounded-xl bg-coral text-white font-bold text-sm shadow-sm hover:bg-coral-hover transition flex items-center gap-2">
+                    <i data-lucide="zap" class="w-4 h-4"></i>
+                    <span>Rejoindre</span>
+                </button>
+                <!-- Mobile Menu Toggle -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-lightgray hover:text-white focus:outline-none" aria-label="Menu mobile">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-navy-dark border-t border-navy-light/30 px-6 py-6 space-y-4">
+            <a href="#about" class="block text-offwhite hover:text-coral font-medium" onclick="toggleMenu()">Le Club</a>
+            <a href="#outils" class="block text-offwhite hover:text-coral font-medium" onclick="toggleMenu()">Boîte à Outils</a>
+            <a href="#simulateur" class="block text-offwhite hover:text-coral font-medium" onclick="toggleMenu()">Simulateur de Stack</a>
+            <a href="#projets" class="block text-offwhite hover:text-coral font-medium" onclick="toggleMenu()">Projets Membres</a>
+            <a href="#programme" class="block text-offwhite hover:text-coral font-medium" onclick="toggleMenu()">Programmes</a>
+            <a href="#faq" class="block text-offwhite hover:text-coral font-medium" onclick="toggleMenu()">FAQ</a>
+            <button onclick="openModal(); toggleMenu();" class="w-full py-3 rounded-xl bg-coral text-white font-bold text-center hover:bg-coral-hover transition">
+                Rejoindre le Club
+            </button>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION (Blanc cassé : #FAF7F2) -->
+    <section class="py-16 md:py-24 bg-offwhite border-b border-lightgray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-lightgray text-navy text-xs md:text-sm font-semibold border border-lightgray">
+                        <span class="w-2 h-2 rounded-full bg-coral"></span>
+                        <span>École panafricaine des créateurs de solutions numériques</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight leading-tight text-navy">
+                        Bâtissez l'Afrique de demain, <br>
+                        <span class="text-coral">sans écrire une seule ligne de code.</span>
+                    </h1>
+
+                    <p class="text-navy/80 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Le Club No-Code forme les innovateurs sahéliens aux outils visuels et à l'IA. Protypez vos applications, automatisez vos commerces et lancez vos MVPs en quelques jours.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="pt-2 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <button onclick="openModal()" class="px-7 py-3.5 rounded-xl bg-coral hover:bg-coral-hover text-white font-bold text-base shadow-sm transition flex items-center justify-center gap-2">
+                            <i data-lucide="rocket" class="w-5 h-5"></i>
+                            <span>Rejoindre la communauté</span>
+                        </button>
+                        <a href="#simulateur" class="px-7 py-3.5 rounded-xl bg-white hover:bg-lightgray text-navy font-semibold text-base border border-lightgray transition flex items-center justify-center gap-2">
+                            <i data-lucide="cpu" class="w-5 h-5 text-coral"></i>
+                            <span>Simuler mon projet</span>
+                        </a>
+                    </div>
+
+                    <!-- Metrics -->
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-lightgray max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-display font-black text-navy">+500</div>
+                            <div class="text-xs text-navy/70 font-medium mt-1">Makers formés</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-display font-black text-coral">+80</div>
+                            <div class="text-xs text-navy/70 font-medium mt-1">MVPs déployés</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-display font-black text-navy">0 FCFA</div>
+                            <div class="text-xs text-navy/70 font-medium mt-1">Barrière technique</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Image [IMAGE 1] -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="bg-white p-3 rounded-2xl border border-lightgray shadow-sm">
+                        <img 
+                            src="images/hero-kabakoo.svg" 
+                            alt="Innovateurs et créateurs du Club No-Code Kabakoo travaillant sur des projets numériques"
+                            class="w-full rounded-xl"
+                            loading="eager"
+                        >
+                    </div>
+
+                    <!-- Key feature mini-card -->
+                    <div class="bg-white p-4 rounded-xl border border-lightgray flex items-center justify-between shadow-sm text-xs">
+                        <div class="flex items-center gap-2.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-coral animate-pulse"></span>
+                            <span class="font-bold text-navy">Pipeline No-Code opérationnel :</span>
+                            <span class="text-navy/70 hidden sm:inline">FlutterFlow → Make → Airtable</span>
+                        </div>
+                        <span class="text-coral font-bold font-mono">Prêt en 72h</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECTION: LE CLUB & PHILOSOPHIE HIGH-DUNYA -->
+    <section id="about" class="py-20 md:py-24 bg-white border-b border-lightgray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs uppercase tracking-widest text-coral font-bold">Philosophie & Impact</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-navy">
+                    L'innovation High-Dunya au Sahel
+                </h2>
+                <p class="text-navy/80 text-base leading-relaxed">
+                    Nous combinons les réalités locales et les technologies mondiales les plus avancées. Le No-Code rend la création numérique accessible à tous, sans intermédiaire.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Section Image [IMAGE 2] -->
+                <div class="lg:col-span-5">
+                    <div class="bg-offwhite p-3 rounded-2xl border border-lightgray shadow-sm">
+                        <img 
+                            src="images/about-vision.svg" 
+                            alt="Espace Maker et ateliers collaboratifs High-Dunya de Kabakoo Academies" 
+                            class="w-full rounded-xl"
+                            loading="lazy"
+                        >
+                    </div>
+                </div>
+
+                <!-- 3 Pillars List -->
+                <div class="lg:col-span-7 grid sm:grid-cols-3 gap-6">
+                    
+                    <!-- Pillar 1 -->
+                    <div class="bg-offwhite p-6 rounded-2xl border border-lightgray flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-coral/15 text-coral flex items-center justify-center mb-4">
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-lg font-display font-bold text-navy mb-2">Vitesse x10</h3>
+                            <ul class="text-xs text-navy/80 space-y-2 mb-4">
+                                <li class="flex items-start gap-1.5">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-coral mt-0.5 shrink-0"></i>
+                                    <span>Prototype en moins d'une semaine.</span>
+                                </li>
+                                <li class="flex items-start gap-1.5">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-coral mt-0.5 shrink-0"></i>
+                                    <span>Test direct auprès des clients.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <span class="text-[11px] font-bold text-coral">Déploiement express</span>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="bg-offwhite p-6 rounded-2xl border border-lightgray flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-navy/10 text-navy flex items-center justify-center mb-4">
+                                <i data-lucide="users" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-lg font-display font-bold text-navy mb-2">Inclusivité</h3>
+                            <ul class="text-xs text-navy/80 space-y-2 mb-4">
+                                <li class="flex items-start gap-1.5">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-coral mt-0.5 shrink-0"></i>
+                                    <span>Aucun prérequis en programmation.</span>
+                                </li>
+                                <li class="flex items-start gap-1.5">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-coral mt-0.5 shrink-0"></i>
+                                    <span>Pour artisans, créatifs et étudiants.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <span class="text-[11px] font-bold text-navy">100% accessible</span>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="bg-offwhite p-6 rounded-2xl border border-lightgray flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-coral/15 text-coral flex items-center justify-center mb-4">
+                                <i data-lucide="badge-percent" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-lg font-display font-bold text-navy mb-2">Coûts réduits</h3>
+                            <ul class="text-xs text-navy/80 space-y-2 mb-4">
+                                <li class="flex items-start gap-1.5">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-coral mt-0.5 shrink-0"></i>
+                                    <span>Économie de 80% sur le lancement.</span>
+                                </li>
+                                <li class="flex items-start gap-1.5">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-coral mt-0.5 shrink-0"></i>
+                                    <span>Rentabilité testée avant d'investir.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <span class="text-[11px] font-bold text-coral">Budget maîtrisé</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. SECTION: BOÎTE À OUTILS (TECH STACK) -->
+    <section id="outils" class="py-20 md:py-24 bg-lightgray/30 border-b border-lightgray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-coral font-bold">Écosystème Pratique</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-navy mt-1">
+                        Les technologies enseignées au Club
+                    </h2>
+                </div>
+                <p class="text-navy/70 text-sm max-w-md mt-3 md:mt-0">
+                    Des outils reconnus mondialement, choisis pour leur robustesse et leur faible consommation de données.
+                </p>
+            </div>
+
+            <!-- Image Section Outils [IMAGE 3] -->
+            <div class="bg-white p-3 rounded-2xl border border-lightgray shadow-sm mb-10">
+                <img 
+                    src="images/outils-tech.svg" 
+                    alt="Environnement de développement visuel et outils No-Code enseignés au Club Kabakoo" 
+                    class="w-full rounded-xl"
+                    loading="lazy"
+                >
+            </div>
+
+            <!-- Grid 4 Tech Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Tool 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-lightgray shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-9 h-9 rounded-lg bg-navy text-offwhite flex items-center justify-center font-bold text-xs">FF</span>
+                            <span class="text-[11px] font-semibold bg-lightgray px-2 py-0.5 rounded text-navy">Mobile</span>
+                        </div>
+                        <h3 class="text-lg font-display font-bold text-navy mb-2">FlutterFlow & Glide</h3>
+                        <p class="text-xs text-navy/70 leading-relaxed mb-4">
+                            Conception d'applications mobiles natives iOS et Android avec code exportable et fonctionnement hors-ligne.
+                        </p>
+                    </div>
+                    <ul class="text-[11px] text-navy/80 space-y-1 border-t border-lightgray pt-3">
+                        <li class="font-medium">• Apps iOS & Android</li>
+                        <li class="font-medium">• Interfaces réactives</li>
+                    </ul>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-lightgray shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-9 h-9 rounded-lg bg-coral text-white flex items-center justify-center font-bold text-xs">M</span>
+                            <span class="text-[11px] font-semibold bg-lightgray px-2 py-0.5 rounded text-navy">Flux & IA</span>
+                        </div>
+                        <h3 class="text-lg font-display font-bold text-navy mb-2">Make & n8n</h3>
+                        <p class="text-xs text-navy/70 leading-relaxed mb-4">
+                            Orchestration des flux de données, bots WhatsApp automatiques et facturation sans maintenance serveur.
+                        </p>
+                    </div>
+                    <ul class="text-[11px] text-navy/80 space-y-1 border-t border-lightgray pt-3">
+                        <li class="font-medium">• WhatsApp Business API</li>
+                        <li class="font-medium">• Relances automatiques</li>
+                    </ul>
+                </div>
+
+                <!-- Tool 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-lightgray shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-9 h-9 rounded-lg bg-navy text-offwhite flex items-center justify-center font-bold text-xs">DB</span>
+                            <span class="text-[11px] font-semibold bg-lightgray px-2 py-0.5 rounded text-navy">Bases de données</span>
+                        </div>
+                        <h3 class="text-lg font-display font-bold text-navy mb-2">Airtable & Supabase</h3>
+                        <p class="text-xs text-navy/70 leading-relaxed mb-4">
+                            Bases de données cloud intuitives et évolutives pour piloter stocks, profils utilisateurs et règlements.
+                        </p>
+                    </div>
+                    <ul class="text-[11px] text-navy/80 space-y-1 border-t border-lightgray pt-3">
+                        <li class="font-medium">• Gestion des stocks & CRM</li>
+                        <li class="font-medium">• Données sécurisées</li>
+                    </ul>
+                </div>
+
+                <!-- Tool 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-lightgray shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-9 h-9 rounded-lg bg-coral text-white flex items-center justify-center font-bold text-xs">WEB</span>
+                            <span class="text-[11px] font-semibold bg-lightgray px-2 py-0.5 rounded text-navy">Web & SaaS</span>
+                        </div>
+                        <h3 class="text-lg font-display font-bold text-navy mb-2">Bubble & Webflow</h3>
+                        <p class="text-xs text-navy/70 leading-relaxed mb-4">
+                            Développement de plateformes SaaS complètes, places de marché et portails web au design professionnel.
+                        </p>
+                    </div>
+                    <ul class="text-[11px] text-navy/80 space-y-1 border-t border-lightgray pt-3">
+                        <li class="font-medium">• Places de marché</li>
+                        <li class="font-medium">• Portails multi-utilisateurs</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. SECTION: SIMULATEUR DE STACK INTERACTIF -->
+    <section id="simulateur" class="py-20 md:py-24 bg-white border-b border-lightgray">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-coral/10 text-coral text-xs font-bold border border-coral/20">
+                    <i data-lucide="cpu" class="w-3.5 h-3.5"></i> Outil Interactif
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-navy">
+                    Simulateur de Stack No-Code
+                </h2>
+                <p class="text-navy/80 text-sm">
+                    Indiquez votre ambition et obtenez la combinaison d'outils recommandée, le délai de livraison estimé et la méthode adaptée.
+                </p>
+            </div>
+
+            <!-- Simulator Box -->
+            <div class="bg-offwhite p-6 sm:p-10 rounded-3xl border border-lightgray shadow-sm">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    
+                    <!-- Controls Form -->
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-xs font-bold text-navy uppercase tracking-wider mb-2">
+                                1. Type de solution souhaitée
+                            </label>
+                            <select id="simProjectType" class="w-full bg-white border border-lightgray rounded-xl px-4 py-3 text-sm text-navy focus:outline-none focus:border-coral transition shadow-sm">
+                                <option value="mobile_app">Application Mobile client (iOS / Android)</option>
+                                <option value="whatsapp_bot">Boutique & Bot WhatsApp automatique</option>
+                                <option value="marketplace">Place de marché Web (vendeurs & acheteurs)</option>
+                                <option value="internal_crm">Outil de gestion interne (Stock, Facturation, CRM)</option>
+                                <option value="portfolio_site">Site vitrine & portfolio professionnel</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-navy uppercase tracking-wider mb-2">
+                                2. Votre niveau actuel
+                            </label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button type="button" class="sim-level-btn px-3 py-2.5 rounded-lg border-2 border-coral bg-coral text-white text-xs font-bold text-center transition" data-level="debutant">
+                                    Débutant
+                                </button>
+                                <button type="button" class="sim-level-btn px-3 py-2.5 rounded-lg border border-lightgray bg-white text-navy hover:border-coral text-xs font-medium text-center transition" data-level="intermediaire">
+                                    Intermédiaire
+                                </button>
+                                <button type="button" class="sim-level-btn px-3 py-2.5 rounded-lg border border-lightgray bg-white text-navy hover:border-coral text-xs font-medium text-center transition" data-level="avance">
+                                    Avancé
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-navy uppercase tracking-wider mb-2">
+                                3. Objectif prioritaire
+                            </label>
+                            <select id="simPriority" class="w-full bg-white border border-lightgray rounded-xl px-4 py-3 text-sm text-navy focus:outline-none focus:border-coral transition shadow-sm">
+                                <option value="speed">Vitesse de lancement (moins de 7 jours)</option>
+                                <option value="scale">Évolutivité et volume d'utilisateurs</option>
+                                <option value="cost">Coût minimum (outils gratuits au départ)</option>
+                            </select>
+                        </div>
+
+                        <button id="calcStackBtn" class="w-full py-3.5 rounded-xl bg-coral hover:bg-coral-hover text-white font-bold text-sm shadow-sm transition flex items-center justify-center gap-2">
+                            <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                            <span>Calculer la Stack Optimale</span>
+                        </button>
+                    </div>
+
+                    <!-- Simulator Output Box -->
+                    <div id="simResultBox" class="bg-white border-2 border-coral/30 rounded-2xl p-6 sm:p-7 relative flex flex-col justify-between min-h-[360px] shadow-sm">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[11px] font-bold text-coral uppercase tracking-wider">Recommandation Kabakoo</span>
+                                <span id="simTimeBadge" class="text-xs bg-lightgray text-navy font-bold px-2.5 py-0.5 rounded-full border border-lightgray">
+                                    ⏱ 3 à 5 jours
+                                </span>
+                            </div>
+
+                            <h3 id="simTitle" class="text-xl font-display font-bold text-navy mb-2">
+                                Glide Apps + Make + Airtable
+                            </h3>
+                            <p id="simDesc" class="text-xs text-navy/80 leading-relaxed mb-5">
+                                La stack idéale pour déployer une app mobile réactive sans complexité technique, connectée à un tableur puissant et des alertes WhatsApp.
+                            </p>
+
+                            <!-- Tool tags -->
+                            <div class="space-y-2 mb-6">
+                                <div class="text-[11px] text-navy/70 font-bold uppercase">Composants recommandés :</div>
+                                <div id="simToolTags" class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-offwhite border border-lightgray rounded-lg text-xs font-semibold text-navy">📱 Interface : Glide</span>
+                                    <span class="px-3 py-1 bg-offwhite border border-lightgray rounded-lg text-xs font-semibold text-navy">🗄️ BDD : Airtable</span>
+                                    <span class="px-3 py-1 bg-offwhite border border-lightgray rounded-lg text-xs font-semibold text-navy">⚙️ Flux : Make</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-lightgray flex items-center justify-between">
+                            <span class="text-xs text-navy/70">Besoin d'accompagnement ?</span>
+                            <button onclick="openModal()" class="text-xs font-bold text-coral hover:underline flex items-center gap-1">
+                                Rejoindre le Club <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. SECTION: PROJETS RÉALISÉS PAR NOS MEMBRES -->
+    <section id="projets" class="py-20 md:py-24 bg-lightgray/30 border-b border-lightgray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-coral font-bold">Réalisations Concrètes</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-navy mt-1">
+                        Ce que nos makers ont construit
+                    </h2>
+                </div>
+                
+                <!-- Filter Pills -->
+                <div class="flex flex-wrap gap-2 mt-4 md:mt-0" id="projectFilterGroup">
+                    <button class="filter-btn active px-3.5 py-1.5 rounded-full text-xs font-bold bg-coral text-white transition" data-filter="all">Tous</button>
+                    <button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white hover:bg-lightgray text-navy border border-lightgray transition" data-filter="agri">Agritech & Commerce</button>
+                    <button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white hover:bg-lightgray text-navy border border-lightgray transition" data-filter="sante">Santé & Social</button>
+                    <button class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white hover:bg-lightgray text-navy border border-lightgray transition" data-filter="edu">Formation & Emploi</button>
+                </div>
+            </div>
+
+            <!-- Image Section Projets [IMAGE 4] -->
+            <div class="bg-white p-3 rounded-2xl border border-lightgray shadow-sm mb-10">
+                <img 
+                    src="images/projets-showcase.svg" 
+                    alt="Aperçu des applications mobiles et solutions concrètes déployées par les membres Kabakoo" 
+                    class="w-full rounded-xl"
+                    loading="lazy"
+                >
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsContainer">
+                
+                <!-- Project 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-lightgray shadow-sm project-card" data-category="agri">
+                    <div class="p-5 border-b border-lightgray bg-offwhite flex justify-between items-center">
+                        <div>
+                            <span class="text-[10px] font-bold text-coral uppercase tracking-wider">Agritech</span>
+                            <h3 class="text-lg font-display font-bold text-navy">SuguConnect</h3>
+                        </div>
+                        <span class="text-xs bg-lightgray text-navy font-semibold px-2 py-0.5 rounded">En 5 jours</span>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <p class="text-xs text-navy/80 leading-relaxed">
+                            Marketplace reliant les agriculteurs de Koulikoro aux restaurateurs de Bamako sans intermédiaires.
+                        </p>
+                        <div class="text-[11px] text-navy/70 pt-2 border-t border-lightgray">
+                            Stack : <strong class="text-navy">Glide + Airtable + WhatsApp</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-lightgray shadow-sm project-card" data-category="sante">
+                    <div class="p-5 border-b border-lightgray bg-offwhite flex justify-between items-center">
+                        <div>
+                            <span class="text-[10px] font-bold text-coral uppercase tracking-wider">Santé</span>
+                            <h3 class="text-lg font-display font-bold text-navy">DunyaCare</h3>
+                        </div>
+                        <span class="text-xs bg-lightgray text-navy font-semibold px-2 py-0.5 rounded">+1 200 usagers</span>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <p class="text-xs text-navy/80 leading-relaxed">
+                            Bot de carnet de santé virtuel pour le suivi vaccinal des nourrissons avec rappels audio en Bambara.
+                        </p>
+                        <div class="text-[11px] text-navy/70 pt-2 border-t border-lightgray">
+                            Stack : <strong class="text-navy">Make + Voiceflow + WhatsApp</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-lightgray shadow-sm project-card" data-category="edu">
+                    <div class="p-5 border-b border-lightgray bg-offwhite flex justify-between items-center">
+                        <div>
+                            <span class="text-[10px] font-bold text-coral uppercase tracking-wider">Artisanat</span>
+                            <h3 class="text-lg font-display font-bold text-navy">BamaCraft Studio</h3>
+                        </div>
+                        <span class="text-xs bg-lightgray text-navy font-semibold px-2 py-0.5 rounded">e-Commerce</span>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <p class="text-xs text-navy/80 leading-relaxed">
+                            Plateforme de micro-cours et vente internationale pour les artisans maliens du cuir et du textile.
+                        </p>
+                        <div class="text-[11px] text-navy/70 pt-2 border-t border-lightgray">
+                            Stack : <strong class="text-navy">Webflow + Memberstack + Stripe</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-lightgray shadow-sm project-card" data-category="agri">
+                    <div class="p-5 border-b border-lightgray bg-offwhite flex justify-between items-center">
+                        <div>
+                            <span class="text-[10px] font-bold text-coral uppercase tracking-wider">Logistique</span>
+                            <h3 class="text-lg font-display font-bold text-navy">LivroFast Bko</h3>
+                        </div>
+                        <span class="text-xs bg-lightgray text-navy font-semibold px-2 py-0.5 rounded">Mobile natif</span>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <p class="text-xs text-navy/80 leading-relaxed">
+                            Application de dispatching et gestion en temps réel des courses de livreurs moto pour les PME.
+                        </p>
+                        <div class="text-[11px] text-navy/70 pt-2 border-t border-lightgray">
+                            Stack : <strong class="text-navy">FlutterFlow + Supabase</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-lightgray shadow-sm project-card" data-category="edu">
+                    <div class="p-5 border-b border-lightgray bg-offwhite flex justify-between items-center">
+                        <div>
+                            <span class="text-[10px] font-bold text-coral uppercase tracking-wider">Recrutement</span>
+                            <h3 class="text-lg font-display font-bold text-navy">DunyaTalents</h3>
+                        </div>
+                        <span class="text-xs bg-lightgray text-navy font-semibold px-2 py-0.5 rounded">+250 recrutements</span>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <p class="text-xs text-navy/80 leading-relaxed">
+                            Mise en relation directe entre entreprises locales et profils formés aux compétences du 21e siècle.
+                        </p>
+                        <div class="text-[11px] text-navy/70 pt-2 border-t border-lightgray">
+                            Stack : <strong class="text-navy">Softr + Airtable</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-lightgray shadow-sm project-card" data-category="sante">
+                    <div class="p-5 border-b border-lightgray bg-offwhite flex justify-between items-center">
+                        <div>
+                            <span class="text-[10px] font-bold text-coral uppercase tracking-wider">Écologie</span>
+                            <h3 class="text-lg font-display font-bold text-navy">EauSûre Alerte</h3>
+                        </div>
+                        <span class="text-xs bg-lightgray text-navy font-semibold px-2 py-0.5 rounded">Citoyen</span>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <p class="text-xs text-navy/80 leading-relaxed">
+                            Cartographie participative des pannes de forages d'eau potable reliée aux services techniques municipaux.
+                        </p>
+                        <div class="text-[11px] text-navy/70 pt-2 border-t border-lightgray">
+                            Stack : <strong class="text-navy">AppSheet + Google Cloud</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. SECTION: PROGRAMMES & ACTIVITÉS -->
+    <section id="programme" class="py-20 md:py-24 bg-white border-b border-lightgray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs uppercase tracking-widest text-coral font-bold">Méthodologie</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-navy">
+                    Un parcours centré sur l'action
+                </h2>
+                <p class="text-navy/80 text-base leading-relaxed">
+                    Pas de cours magistraux passifs. Nous apprenons en concevant en équipe des outils utiles pour nos communautés.
+                </p>
+            </div>
+
+            <!-- Image Section Programmes [IMAGE 5] -->
+            <div class="bg-offwhite p-3 rounded-2xl border border-lightgray shadow-sm mb-12">
+                <img 
+                    src="images/communaute-action.svg" 
+                    alt="Membres du Club No-Code collaborant lors d'un Hackathon pratique au campus Kabakoo" 
+                    class="w-full rounded-xl"
+                    loading="lazy"
+                >
+            </div>
+
+            <!-- 4 Activities Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-offwhite p-6 rounded-2xl border border-lightgray space-y-3">
+                    <span class="text-2xl font-bold font-display text-coral">01</span>
+                    <h3 class="text-base font-bold text-navy">Build Nights Hebdo</h3>
+                    <ul class="text-xs text-navy/80 space-y-1.5">
+                        <li>• Rendez-vous chaque jeudi soir.</li>
+                        <li>• Maîtrise d'un outil sur un cas réel.</li>
+                        <li>• Sessions en direct et interactives.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-offwhite p-6 rounded-2xl border border-lightgray space-y-3">
+                    <span class="text-2xl font-bold font-display text-navy">02</span>
+                    <h3 class="text-lg font-bold text-navy">Hackathons 48H</h3>
+                    <ul class="text-xs text-navy/80 space-y-1.5">
+                        <li>• Défi lancé le vendredi soir.</li>
+                        <li>• Application livrée le dimanche.</li>
+                        <li>• Présentation devant un jury.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-offwhite p-6 rounded-2xl border border-lightgray space-y-3">
+                    <span class="text-2xl font-bold font-display text-coral">03</span>
+                    <h3 class="text-lg font-bold text-navy">Clinique No-Code</h3>
+                    <ul class="text-xs text-navy/80 space-y-1.5">
+                        <li>• Déblocage technique et debug.</li>
+                        <li>• Résolution d'API et webhooks.</li>
+                        <li>• Mentors dédiés pour chaque maker.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-offwhite p-6 rounded-2xl border border-lightgray space-y-3">
+                    <span class="text-2xl font-bold font-display text-navy">04</span>
+                    <h3 class="text-lg font-bold text-navy">Demo Days</h3>
+                    <ul class="text-xs text-navy/80 space-y-1.5">
+                        <li>• Pitch devant les investisseurs.</li>
+                        <li>• Partenariats d'impact au Sahel.</li>
+                        <li>• Opportunités de financement.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 9. SECTION: TÉMOIGNAGES -->
+    <section class="py-20 md:py-24 bg-lightgray/30 border-b border-lightgray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-14 space-y-2">
+                <span class="text-xs uppercase tracking-widest text-coral font-bold">Retours d'expérience</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-navy">
+                    La voix de notre communauté
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <div class="bg-white p-7 rounded-2xl border border-lightgray shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-coral mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-xs text-navy/80 leading-relaxed italic mb-4">
+                            « En 10 jours au Club No-Code, mon application maraîchère SuguConnect enregistrait ses premières commandes, sans écrire une seule ligne de code. »
+                        </p>
+                    </div>
+                    <div class="border-t border-lightgray pt-3">
+                        <div class="text-xs font-bold text-navy">Fatoumata Traoré</div>
+                        <div class="text-[11px] text-navy/70">Fondatrice d'AgriMarket Bamako</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-7 rounded-2xl border border-lightgray shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-coral mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-xs text-navy/80 leading-relaxed italic mb-4">
+                            « Les ateliers pratiques m'ont permis de décrocher mes premières missions de conseil en automatisation pour des entreprises en Côte d'Ivoire. »
+                        </p>
+                    </div>
+                    <div class="border-t border-lightgray pt-3">
+                        <div class="text-xs font-bold text-navy">Sekou Keita</div>
+                        <div class="text-[11px] text-navy/70">Consultant Automatisation Make</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-7 rounded-2xl border border-lightgray shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-coral mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-xs text-navy/80 leading-relaxed italic mb-4">
+                            « Kabakoo incarne l'émancipation par la technologie. Le No-Code permet à notre jeunesse de concevoir directement les outils dont elle a besoin. »
+                        </p>
+                    </div>
+                    <div class="border-t border-lightgray pt-3">
+                        <div class="text-xs font-bold text-navy">Mariam Diarra</div>
+                        <div class="text-[11px] text-navy/70">Maker & Cheffe de Projet Digital</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 10. SECTION: FAQ ACCORDION -->
+    <section id="faq" class="py-20 md:py-24 bg-white border-b border-lightgray">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-12 space-y-2">
+                <span class="text-xs uppercase tracking-widest text-coral font-bold">Réponses Claires</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-navy">
+                    Questions Fréquentes
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                
+                <div class="bg-offwhite rounded-xl border border-lightgray overflow-hidden">
+                    <button class="faq-btn w-full p-5 text-left font-bold text-sm sm:text-base text-navy flex items-center justify-between focus:outline-none">
+                        <span>Faut-il savoir coder pour rejoindre le Club ?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-coral transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-navy/80 leading-relaxed border-t border-lightgray pt-3">
+                        Non, aucun diplôme ni notion technique n'est requis. Une curiosité d'esprit et l'usage courant d'un navigateur internet suffisent pour débuter.
+                    </div>
+                </div>
+
+                <div class="bg-offwhite rounded-xl border border-lightgray overflow-hidden">
+                    <button class="faq-btn w-full p-5 text-left font-bold text-sm sm:text-base text-navy flex items-center justify-between focus:outline-none">
+                        <span>Les sessions sont-elles en présentiel ou à distance ?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-coral transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-navy/80 leading-relaxed border-t border-lightgray pt-3">
+                        Le club est hybride : des ateliers sur le campus Kabakoo à Bamako et des sessions en ligne sur Discord et WhatsApp ouvertes à toute l'Afrique de l'Ouest.
+                    </div>
+                </div>
+
+                <div class="bg-offwhite rounded-xl border border-lightgray overflow-hidden">
+                    <button class="faq-btn w-full p-5 text-left font-bold text-sm sm:text-base text-navy flex items-center justify-between focus:outline-none">
+                        <span>Peut-on concevoir de vraies applications professionnelles ?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-coral transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-navy/80 leading-relaxed border-t border-lightgray pt-3">
+                        Absolument. Les outils actuels intègrent paiements mobiles (Orange Money, Wave, Stripe), sécurité cloud et publication officielle sur App Store et Google Play.
+                    </div>
+                </div>
+
+                <div class="bg-offwhite rounded-xl border border-lightgray overflow-hidden">
+                    <button class="faq-btn w-full p-5 text-left font-bold text-sm sm:text-base text-navy flex items-center justify-between focus:outline-none">
+                        <span>Quels sont les tarifs d'adhésion ?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-coral transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-navy/80 leading-relaxed border-t border-lightgray pt-3">
+                        L'accès à la communauté ouverte est gratuit. Pour les bootcamps intensifs et le mentorat individuel, Kabakoo propose des bourses adaptées aux réalités locales.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 11. SECTION: BANNIÈRE D'APPEL À L'ACTION -->
+    <section class="py-20 md:py-24 bg-offwhite">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-navy text-offwhite p-10 sm:p-14 rounded-3xl shadow-lg space-y-6">
+                <span class="text-xs uppercase tracking-widest text-coral font-bold">Passez à l'action</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-offwhite">
+                    Prêt à bâtir votre premier produit numérique ?
+                </h2>
+                <p class="text-lightgray text-sm sm:text-base max-w-xl mx-auto">
+                    Rejoignez les makers du Sahel, échangez vos expériences et déployez votre application sans barrière technique.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2">
+                    <button onclick="openModal()" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-coral hover:bg-coral-hover text-white font-bold text-base shadow-sm transition flex items-center justify-center gap-2">
+                        <i data-lucide="user-plus" class="w-5 h-5"></i>
+                        <span>Candidater au Club</span>
+                    </button>
+                    <a href="https://wa.me/?text=Bonjour%20Kabakoo,%20je%20souhaite%20rejoindre%20le%20Club%20No-Code" target="_blank" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-offwhite font-semibold text-sm border border-lightgray/20 transition flex items-center justify-center gap-2">
+                        <i data-lucide="message-circle" class="w-5 h-5 text-coral"></i>
+                        <span>Discuter sur WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. PIED DE PAGE (Bleu marine : #1F2A44) -->
+    <footer id="contact" class="bg-navy text-lightgray py-14 text-xs border-t border-navy-light/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+            
+            <!-- Col 1 -->
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-coral flex items-center justify-center text-white font-display font-bold">
+                        K
+                    </div>
+                    <span class="font-display font-bold text-lg text-offwhite">KABAKOO</span>
+                </div>
+                <p class="leading-relaxed text-lightgray/80">
+                    École pionnière de la 4ème Révolution Industrielle au Sahel. Apprentissage décentralisé et innovation High-Dunya.
+                </p>
+                <div class="text-[11px] text-lightgray/60">
+                    Bamako, Mali • Dakar, Sénégal • Panafricain
+                </div>
+            </div>
+
+            <!-- Col 2 -->
+            <div class="space-y-2">
+                <div class="font-bold text-sm text-offwhite uppercase tracking-wider mb-2">Navigation</div>
+                <ul class="space-y-1.5">
+                    <li><a href="#about" class="hover:text-coral transition">Le Club</a></li>
+                    <li><a href="#outils" class="hover:text-coral transition">Outils</a></li>
+                    <li><a href="#simulateur" class="hover:text-coral transition">Simulateur</a></li>
+                    <li><a href="#projets" class="hover:text-coral transition">Projets</a></li>
+                    <li><a href="#programme" class="hover:text-coral transition">Programmes</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div class="space-y-2">
+                <div class="font-bold text-sm text-offwhite uppercase tracking-wider mb-2">Outils Phares</div>
+                <ul class="space-y-1.5 text-lightgray/80">
+                    <li>FlutterFlow (Mobile)</li>
+                    <li>Make & n8n (Automatisation)</li>
+                    <li>Airtable & Supabase (Bases de données)</li>
+                    <li>Bubble & Webflow (SaaS & Web)</li>
+                </ul>
+            </div>
+
+            <!-- Col 4 -->
+            <div class="space-y-3">
+                <div class="font-bold text-sm text-offwhite uppercase tracking-wider">Contact & Réseaux</div>
+                <p class="text-lightgray/80">
+                    Une question ou un projet ?
+                </p>
+                <div class="font-mono text-offwhite font-semibold">nocode@kabakoo.africa</div>
+                <div class="flex items-center gap-3 pt-2">
+                    <a href="#" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-coral text-offwhite flex items-center justify-center transition" aria-label="Twitter">
+                        <i data-lucide="twitter" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-coral text-offwhite flex items-center justify-center transition" aria-label="LinkedIn">
+                        <i data-lucide="linkedin" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-coral text-offwhite flex items-center justify-center transition" aria-label="Instagram">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-navy-light/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-lightgray/70">
+            <div>
+                © 2026 Kabakoo Academies • Club No-Code. Tous droits réservés.
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#" class="hover:text-offwhite">Mentions Légales</a>
+                <span>•</span>
+                <a href="#" class="hover:text-offwhite">Confidentialité</a>
+                <span>•</span>
+                <span class="text-coral">High-Dunya Innovation</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 13. MODALE D'INSCRIPTION / CANDIDATURE -->
+    <div id="joinModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white text-navy w-full max-w-lg rounded-3xl p-6 sm:p-8 border border-lightgray shadow-2xl relative transform scale-95 transition-transform duration-300" id="modalCard">
+            
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-navy/60 hover:text-navy p-1.5 rounded-lg bg-lightgray hover:bg-lightgray-alt transition" aria-label="Fermer la fenêtre">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="mb-5">
+                <span class="text-[11px] font-bold text-coral uppercase tracking-wider">Candidature Express</span>
+                <h3 class="text-2xl font-display font-bold text-navy mt-1">Rejoindre le Club No-Code</h3>
+                <p class="text-xs text-navy/70 mt-1">
+                    Complétez ce formulaire pour être convié au prochain atelier pratique.
+                </p>
+            </div>
+
+            <form id="joinForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                <div>
+                    <label class="block text-xs font-bold text-navy mb-1">Nom complet *</label>
+                    <input type="text" required placeholder="Ex: Amadou Diallo" class="w-full bg-offwhite border border-lightgray rounded-xl px-4 py-2.5 text-sm text-navy focus:outline-none focus:border-coral transition">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-navy mb-1">Email *</label>
+                        <input type="email" required placeholder="amadou@exemple.com" class="w-full bg-offwhite border border-lightgray rounded-xl px-4 py-2.5 text-sm text-navy focus:outline-none focus:border-coral transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-navy mb-1">Numéro WhatsApp *</label>
+                        <input type="tel" required placeholder="+223 ..." class="w-full bg-offwhite border border-lightgray rounded-xl px-4 py-2.5 text-sm text-navy focus:outline-none focus:border-coral transition">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-navy mb-1">Ville / Pays *</label>
+                        <input type="text" required placeholder="Ex: Bamako, Mali" class="w-full bg-offwhite border border-lightgray rounded-xl px-4 py-2.5 text-sm text-navy focus:outline-none focus:border-coral transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-navy mb-1">Votre profil</label>
+                        <select class="w-full bg-offwhite border border-lightgray rounded-xl px-4 py-2.5 text-sm text-navy focus:outline-none focus:border-coral transition">
+                            <option>Étudiant / Curieux</option>
+                            <option>Entrepreneur / Porteur de projet</option>
+                            <option>Commerçant / Artisan</option>
+                            <option>Designer / Créatif</option>
+                            <option>Professionnel en reconversion</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-navy mb-1">Votre projet ou ambition</label>
+                    <textarea rows="2" placeholder="Que souhaitez-vous créer ou automatiser ?" class="w-full bg-offwhite border border-lightgray rounded-xl px-4 py-2 text-sm text-navy focus:outline-none focus:border-coral transition"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-coral hover:bg-coral-hover text-white font-bold text-sm shadow-sm transition flex items-center justify-center gap-2">
+                    <i data-lucide="check" class="w-4 h-4"></i>
+                    <span>Envoyer ma candidature</span>
+                </button>
+            </form>
+
+            <div id="formSuccess" class="hidden text-center py-8 space-y-3">
+                <div class="w-12 h-12 rounded-full bg-coral/15 text-coral mx-auto flex items-center justify-center">
+                    <i data-lucide="check-circle" class="w-6 h-6"></i>
+                </div>
+                <h4 class="text-xl font-bold text-navy">Candidature bien reçue !</h4>
+                <p class="text-xs text-navy/70 max-w-sm mx-auto">
+                    Merci pour votre intérêt. Notre équipe vous contactera sur WhatsApp pour vous partager le lien de la communauté.
+                </p>
+                <button onclick="closeModal()" class="mt-3 px-6 py-2 rounded-xl bg-lightgray text-navy text-xs font-bold hover:bg-lightgray-alt transition">
+                    Fermer
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Init Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', toggleMenu);
+        }
+
+        // Modal open/close
+        const modal = document.getElementById('joinModal');
+        const modalCard = document.getElementById('modalCard');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalCard.classList.remove('scale-95');
+                modalCard.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalCard.classList.remove('scale-100');
+            modalCard.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.getElementById('joinForm').classList.remove('hidden');
+                document.getElementById('formSuccess').classList.add('hidden');
+            }, 300);
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('joinForm').classList.add('hidden');
+            const successBox = document.getElementById('formSuccess');
+            successBox.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        // FAQ Accordions
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer = btn.nextElementSibling;
+                const icon = btn.querySelector('[data-lucide="chevron-down"]');
+                const isHidden = answer.classList.contains('hidden');
+
+                document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.add('hidden'));
+                document.querySelectorAll('.faq-btn [data-lucide="chevron-down"]').forEach(ic => {
+                    ic.style.transform = 'rotate(0deg)';
+                });
+
+                if (isHidden) {
+                    answer.classList.remove('hidden');
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Filter Projects
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-coral', 'text-white');
+                    b.classList.add('bg-white', 'text-navy');
+                });
+                btn.classList.add('active', 'bg-coral', 'text-white');
+                btn.classList.remove('bg-white', 'text-navy');
+
+                const filter = btn.getAttribute('data-filter');
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Interactive Stack Simulator Logic
+        const simPresets = {
+            mobile_app: {
+                debutant: {
+                    title: "Glide + Airtable + WhatsApp",
+                    desc: "La solution la plus rapide. Créez une application mobile épurée et prête à l'emploi synchronisée avec un tableur Airtable.",
+                    time: "⏱ 3 à 5 jours",
+                    tools: ["📱 Glide Apps", "🗄️ Airtable", "💬 WhatsApp Chat link"]
+                },
+                intermediaire: {
+                    title: "FlutterFlow + Supabase + Make",
+                    desc: "Application mobile native capable de fonctionner hors-ligne avec base PostgreSQL souveraine et notifications personnalisées.",
+                    time: "⏱ 7 à 14 jours",
+                    tools: ["📱 FlutterFlow", "⚡ Supabase", "⚙️ Make"]
+                },
+                avance: {
+                    title: "FlutterFlow + Backend personnalisé + API Paiement",
+                    desc: "Architecture exportable sur les stores iOS & Android avec intégration directe de passerelles financières locales (Wave, Orange Money).",
+                    time: "⏱ 15 à 21 jours",
+                    tools: ["📱 FlutterFlow Custom Code", "💳 API Wave/OM", "🚀 Supabase Backend"]
+                }
+            },
+            whatsapp_bot: {
+                debutant: {
+                    title: "WhatsApp Cloud API + Make + Google Sheets",
+                    desc: "Enregistrement automatique des commandes clients WhatsApp avec confirmation instantanée et suivi sur tableur.",
+                    time: "⏱ 48 heures",
+                    tools: ["💬 WhatsApp Cloud API", "⚙️ Make", "📊 Google Sheets"]
+                },
+                intermediaire: {
+                    title: "Voiceflow + Make + WhatsApp",
+                    desc: "Assistant conversationnel assisté par l'IA capable de renseigner vos clients 24h/24 en français et langues locales.",
+                    time: "⏱ 4 à 6 jours",
+                    tools: ["🤖 Voiceflow IA", "💬 WhatsApp", "⚙️ Make"]
+                },
+                avance: {
+                    title: "OpenAI Assistants API + n8n + WhatsApp",
+                    desc: "Maîtrise totale des données avec un robot de vente intelligent branché sur votre propre inventaire de produits.",
+                    time: "⏱ 7 à 10 jours",
+                    tools: ["🧠 LLM Fine-tuned", "⚙️ n8n", "📱 Multi-numéros"]
+                }
+            },
+            marketplace: {
+                debutant: {
+                    title: "Softr + Airtable + Stripe / Wave",
+                    desc: "Portail web avec espaces membres distincts (acheteurs et vendeurs) déployé en quelques clics sans complexité.",
+                    time: "⏱ 5 à 7 jours",
+                    tools: ["💻 Softr", "🗄️ Airtable", "💳 Passerelle Paiement"]
+                },
+                intermediaire: {
+                    title: "Bubble.io + BDD native + API WhatsApp",
+                    desc: "Référence des applications web No-Code. Logique conditionnelle poussée, calcul de commissions et mise en relation fluide.",
+                    time: "⏱ 10 à 18 jours",
+                    tools: ["🫧 Bubble.io", "⚙️ API Workflows", "📊 Tableau de bord"]
+                },
+                avance: {
+                    title: "Bubble.io + WeWeb + Xano (Haute Performance)",
+                    desc: "Architecture découplée capable de traiter des dizaines de milliers d'utilisateurs simultanés.",
+                    time: "⏱ 20 à 30 jours",
+                    tools: ["⚡ WeWeb", "🐘 Xano Backend", "🛡️ CDN Cloudflare"]
+                }
+            },
+            internal_crm: {
+                debutant: {
+                    title: "Notion + Tally Forms + Make",
+                    desc: "Suivi des clients, gestion des stocks simples et automatisation des relances pour petites structures.",
+                    time: "⏱ 2 à 3 jours",
+                    tools: ["📝 Notion Workspace", "📋 Tally Forms", "⚙️ Make"]
+                },
+                intermediaire: {
+                    title: "Airtable Interfaces + Make + Relances WhatsApp",
+                    desc: "Mini-ERP visuel pour piloter stocks en boutique physique, encaissements et livraisons.",
+                    time: "⏱ 5 à 7 jours",
+                    tools: ["🗄️ Airtable Interfaces", "💬 SMS/WhatsApp API", "📊 Graphiques"]
+                },
+                avance: {
+                    title: "Retool / AppSheet + PostgreSQL",
+                    desc: "Portail interne robuste avec gestion fine des rôles et autorisations des équipes.",
+                    time: "⏱ 10 à 15 jours",
+                    tools: ["🔒 Retool / AppSheet", "🐘 PostgreSQL", "📈 Analytics"]
+                }
+            },
+            portfolio_site: {
+                debutant: {
+                    title: "Carrd + Formulaire Tally",
+                    desc: "Page d'atterrissage optimisée pour smartphones avec chargement instantané.",
+                    time: "⏱ 24 heures",
+                    tools: ["⚡ Carrd.co", "📋 Tally", "🌍 Nom de domaine"]
+                },
+                intermediaire: {
+                    title: "Webflow + Micro-interactions",
+                    desc: "Site vitrine haute définition avec référencement optimisé (SEO) et design responsive.",
+                    time: "⏱ 4 à 6 jours",
+                    tools: ["🎨 Webflow", "✨ Interactions", "📱 100% Mobile"]
+                },
+                avance: {
+                    title: "Framer + CMS Dynamique",
+                    desc: "Design contemporain, animations fluides et publication instantanée de nouveaux contenus.",
+                    time: "⏱ 5 à 8 jours",
+                    tools: ["📐 Framer", "✨ CMS Dynamique", "🚀 Hébergement mondial"]
+                }
+            }
+        };
+
+        let selectedLevel = 'debutant';
+
+        const levelBtns = document.querySelectorAll('.sim-level-btn');
+        levelBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                levelBtns.forEach(b => {
+                    b.classList.remove('border-2', 'border-coral', 'bg-coral', 'text-white', 'font-bold');
+                    b.classList.add('border', 'border-lightgray', 'bg-white', 'text-navy', 'font-medium');
+                });
+                btn.classList.add('border-2', 'border-coral', 'bg-coral', 'text-white', 'font-bold');
+                btn.classList.remove('border-lightgray', 'bg-white', 'text-navy', 'font-medium');
+                selectedLevel = btn.getAttribute('data-level');
+            });
+        });
+
+        const calcBtn = document.getElementById('calcStackBtn');
+        if (calcBtn) {
+            calcBtn.addEventListener('click', () => {
+                const projectType = document.getElementById('simProjectType').value;
+                const result = (simPresets[projectType] && simPresets[projectType][selectedLevel]) 
+                    ? simPresets[projectType][selectedLevel] 
+                    : simPresets.mobile_app.debutant;
+
+                const titleEl = document.getElementById('simTitle');
+                const descEl = document.getElementById('simDesc');
+                const timeEl = document.getElementById('simTimeBadge');
+                const tagsEl = document.getElementById('simToolTags');
+                const box = document.getElementById('simResultBox');
+
+                box.classList.add('opacity-50');
+
+                setTimeout(() => {
+                    titleEl.innerText = result.title;
+                    descEl.innerText = result.desc;
+                    timeEl.innerText = result.time;
+
+                    tagsEl.innerHTML = '';
+                    result.tools.forEach(tool => {
+                        const span = document.createElement('span');
+                        span.className = 'px-3 py-1 bg-offwhite border border-lightgray rounded-lg text-xs font-semibold text-navy';
+                        span.innerText = tool;
+                        tagsEl.appendChild(span);
+                    });
+
+                    box.classList.remove('opacity-50');
+                }, 150);
+            });
+        }
+    </script>
+</body>
+</html>

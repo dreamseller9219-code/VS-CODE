@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5E7EB"/>
+      <stop offset="100%" stop-color="#D1D5DB"/>
+    </linearGradient>
+    <pattern id="gridPattern1" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#9CA3AF" stroke-width="0.75" stroke-opacity="0.25"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="680" rx="16" fill="url(#bgGrad1)"/>
+  <rect width="1200" height="680" rx="16" fill="url(#gridPattern1)"/>
+  <rect x="2" y="2" width="1196" height="676" rx="14" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <!-- Centered Content Card -->
+  <g transform="translate(600, 310)">
+    <!-- Photo icon container -->
+    <rect x="-65" y="-120" width="130" height="90" rx="18" fill="#1F2A44" opacity="0.95"/>
+    
+    <!-- Camera/Image Icon -->
+    <circle cx="0" cy="-75" r="22" fill="#FAF7F2"/>
+    <circle cx="0" cy="-75" r="14" fill="#1F2A44"/>
+    <circle cx="28" cy="-100" r="4" fill="#FF6F61"/>
+    <rect x="-16" y="-110" width="32" height="8" rx="3" fill="#FAF7F2"/>
+
+    <!-- Tag Accent -->
+    <rect x="-110" y="-10" width="220" height="30" rx="15" fill="#FF6F61"/>
+    <text x="0" y="10" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#FAF7F2" text-anchor="middle" letter-spacing="1">PHOTO À REMPLACER</text>
+
+    <!-- Main Title -->
+    <text x="0" y="60" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#1F2A44" text-anchor="middle">
+      Bannière Héro — Innovateurs en action
+    </text>
+
+    <!-- Description -->
+    <text x="0" y="92" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#4B5563" text-anchor="middle">
+      Format suggéré : 1200 × 680 px • Photo de jeunes créateurs et entrepreneurs sahéliens
+    </text>
+    
+    <!-- Recommended file path -->
+    <text x="0" y="125" font-family="monospace" font-size="14" font-weight="600" fill="#1F2A44" text-anchor="middle">
+      Fichier cible : images/hero-kabakoo.jpg (ou .png)
+    </text>
+  </g>
+</svg>
